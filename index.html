@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stand-up Timer</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <style type="text/css">
+    body, html {
+        background-color: transparent;
+    }
+    #timer {
+        font-size: 200%;
+    }
+  </style>
+</head>
+<body>
+  <div id="timer">02:00</div>
+
+  <script>
+    $(document).ready(function() {
+      let totalSeconds = 120; // 2 minutes
+      const timerElement = $('#timer');
+
+      const updateTimer = () => {
+        if (totalSeconds <= 0) {
+          clearInterval(interval);
+          timerElement.text('Who wants to start?');
+          return;
+        }
+
+        const minutes = Math.floor(totalSeconds / 60).toString().padStart(2, '0');
+        const seconds = (totalSeconds % 60).toString().padStart(2, '0');
+        timerElement.text(`${minutes}:${seconds}`);
+        totalSeconds--;
+      };
+
+      updateTimer(); // Initial display
+      const interval = setInterval(updateTimer, 1000);
+    });
+  </script>
+</body>
+</html>
+
