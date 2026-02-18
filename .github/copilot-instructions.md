@@ -2,7 +2,7 @@
 
 ## Project Overview
 Stand-up meeting countdown timer designed for use in OBS (Open Broadcaster Software). Two variants available:
-- **index.html**: Fixed 2-minute relative countdown timer
+- **relative-timer.html**: Fixed 2-minute relative countdown timer
 - **specific-time.html**: Countdown to 8:30 AM Central Time (absolute time)
 - **styles.css**: Shared styling for consistent appearance across both variants
 
@@ -14,7 +14,7 @@ Stand-up meeting countdown timer designed for use in OBS (Open Broadcaster Softw
   - Sauce Code Pro Nerd Font from jsDelivr CDN for typography
   - Local `styles.css` for shared styling
 - **Timer logic**: 
-  - `index.html`: Fixed 2-minute countdown with intro text
+  - `relative-timer.html`: Fixed 2-minute countdown with intro text
   - `specific-time.html`: Dynamic countdown to next 8:30 AM Central, target calculated once on load
 
 ## Key Design Decisions
@@ -26,7 +26,7 @@ Stand-up meeting countdown timer designed for use in OBS (Open Broadcaster Softw
 
 ## Development Workflow
 **File Structure:**
-- `index.html` - Fixed-duration countdown (always 2 minutes)
+- `relative-timer.html` - Fixed-duration countdown (always 2 minutes)
 - `specific-time.html` - Countdown to specific meeting time (8:30 AM Central)
 - `styles.css` - Shared styling for consistent appearance
 
@@ -43,7 +43,7 @@ Stand-up meeting countdown timer designed for use in OBS (Open Broadcaster Softw
 - White text ensures visibility over most backgrounds
 
 ## Timer Behavior
-**index.html (Relative Timer):**
+**relative-timer.html (Relative Timer):**
 - **Default duration**: 2 minutes (120 seconds)
 - **Format**: MM:SS (e.g., "02:00", "01:30", "00:15")
 - **Auto-start**: Timer begins countdown immediately when page loads
