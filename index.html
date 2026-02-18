@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Stand-up Timer</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nf-sauce-code-pro@2.1.3/nf-font.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <style type="text/css">
     body, html {
@@ -11,28 +12,41 @@
         height: 100%;
         margin: 0;
         padding: 0;
+        font-family: 'SauceCodePro Nerd Font', monospace;
     }
-    #timer {
-        font-size: 200%;
-        color: white;
+    #timer-container {
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        text-align: center;
+        color: white;
+    }
+    #countdown-text {
+        font-size: 150%;
+        margin-bottom: 10px;
+    }
+    #timer {
+        font-size: 200%;
     }
   </style>
 </head>
 <body>
-  <div id="timer">02:00</div>
+  <div id="timer-container">
+    <div id="countdown-text">Stand-up begins in...</div>
+    <div id="timer">02:00</div>
+  </div>
 
   <script>
     $(document).ready(function() {
       let totalSeconds = 120; // 2 minutes
       const timerElement = $('#timer');
+      const countdownTextElement = $('#countdown-text');
 
       const updateTimer = () => {
         if (totalSeconds <= 0) {
           clearInterval(interval);
+          countdownTextElement.hide();
           timerElement.text('Who wants to start?');
           return;
         }
