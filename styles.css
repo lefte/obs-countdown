@@ -24,6 +24,12 @@ body, html {
     margin-bottom: 10px;
 }
 
+#countdown-text::after {
+    /* Counter icon */
+	content: '\F0199';
+	padding-left: 0.5em;
+}
+
 #timer {
     font-size: 250%;
     line-height: 1;

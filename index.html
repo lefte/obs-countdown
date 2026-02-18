@@ -16,7 +16,7 @@
 
   <script>
     $(document).ready(function() {
-      let totalSeconds = 12; // 2 minutes
+      let totalSeconds = 120; // 2 minutes
       const timerElement = $('#timer');
       const countdownTextElement = $('#countdown-text');
 
@@ -24,7 +24,7 @@
         if (totalSeconds <= 0) {
           clearInterval(interval);
           countdownTextElement.hide();
-          timerElement.text('Who wants to start?');
+          timerElement.text('Who wants to start? \udb86\udd89');
           return;
         }
 
