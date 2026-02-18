@@ -4,16 +4,18 @@
 Stand-up meeting countdown timer designed for use in OBS (Open Broadcaster Software). Two variants available:
 - **index.html**: Fixed 2-minute relative countdown timer
 - **specific-time.html**: Countdown to 8:30 AM Central Time (absolute time)
+- **styles.css**: Shared styling for consistent appearance across both variants
 
 ## Architecture
-- **Single-file applications**: All code (HTML, CSS, JS) contained in each HTML file
+- **Multi-file application**: HTML files with shared external CSS
 - **No build process**: Direct HTML files that can be opened in browser or used as browser source in OBS
 - **Dependencies**: 
   - jQuery 3.7.1 from Google CDN for DOM manipulation
   - Sauce Code Pro Nerd Font from jsDelivr CDN for typography
+  - Local `styles.css` for shared styling
 - **Timer logic**: 
   - `index.html`: Fixed 2-minute countdown with intro text
-  - `specific-time.html`: Dynamic countdown to next 8:30 AM Central, handles multi-hour countdowns
+  - `specific-time.html`: Dynamic countdown to next 8:30 AM Central, target calculated once on load
 
 ## Key Design Decisions
 - **Transparent background**: Designed for overlay use in OBS
@@ -23,14 +25,16 @@ Stand-up meeting countdown timer designed for use in OBS (Open Broadcaster Softw
 - **Two-phase display**: Shows "Stand-up begins in..." during countdown, then "Who wants to start?" when complete
 
 ## Development Workflow
-Since these are single HTML files:
-1. Edit files directly for any changes
-2. Open in browser to test functionality
-3. Use as browser source in OBS for production
+**File Structure:**
+- `index.html` - Fixed-duration countdown (always 2 minutes)
+- `specific-time.html` - Countdown to specific meeting time (8:30 AM Central)
+- `styles.css` - Shared styling for consistent appearance
 
-**File Selection:**
-- Use `index.html` for fixed-duration countdown (always 2 minutes)
-- Use `specific-time.html` for countdown to specific meeting time (8:30 AM Central)
+**Making Changes:**
+1. Edit HTML files directly for timer logic changes
+2. Edit `styles.css` for styling changes (affects both timers)
+3. Open files in browser to test functionality
+4. Use as browser source in OBS for production
 
 ## OBS Integration
 - Use as "Browser Source" in OBS
@@ -55,8 +59,15 @@ Since these are single HTML files:
 - **End state**: Hides intro text and displays only "Who wants to start?" when timer reaches zero
 
 ## Styling Considerations
-- **Typography**: Uses Sauce Code Pro Nerd Font (150% for intro text, 200% for timer)
+- **External CSS**: `styles.css` contains all shared styling for both timer variants
+- **Typography**: Uses Sauce Code Pro Nerd Font with bold weight and black text stroke for visibility
 - **Layout**: Container-based centering works for various OBS scene sizes
 - **Colors**: White text with transparent background for overlay functionality
+- **Effects**: Text stroke (2px black outline) ensures visibility over any background
 - **Spacing**: 10px margin between intro text and timer for clear separation
-- **Customization**: Font sizes, colors, and positioning can be adjusted in the `<style>` section
+- **Customization**: Modify `styles.css` to change appearance of both timer variants simultaneously
+
+## File Dependencies
+Both HTML files require:
+- Internet connection for jQuery and Nerd Font CDN
+- Local `styles.css` file in same directory

@@ -5,31 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Stand-up Timer</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nf-sauce-code-pro@2.1.3/nf-font.min.css">
+  <link rel="stylesheet" href="styles.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <style type="text/css">
-    body, html {
-        background-color: transparent;
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        font-family: 'SauceCodePro Nerd Font', monospace;
-    }
-    #timer-container {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-        color: white;
-    }
-    #countdown-text {
-        font-size: 150%;
-        margin-bottom: 10px;
-    }
-    #timer {
-        font-size: 200%;
-    }
-  </style>
 </head>
 <body>
   <div id="timer-container">
@@ -39,7 +16,7 @@
 
   <script>
     $(document).ready(function() {
-      let totalSeconds = 120; // 2 minutes
+      let totalSeconds = 12; // 2 minutes
       const timerElement = $('#timer');
       const countdownTextElement = $('#countdown-text');
 
