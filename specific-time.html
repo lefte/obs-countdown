@@ -28,8 +28,13 @@
         const target = new Date(centralTime);
         target.setHours(8, 30, 0, 0);
 
-        // If we've already passed 8:30 AM today, target tomorrow's 8:30 AM
+        // If we've already passed 8:30 AM today, start looking from tomorrow
         if (centralTime >= target) {
+          target.setDate(target.getDate() + 1);
+        }
+
+        // Skip weekends - find next weekday
+        while (target.getDay() === 0 || target.getDay() === 6) {
           target.setDate(target.getDate() + 1);
         }
 

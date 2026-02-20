@@ -15,7 +15,7 @@ Stand-up meeting countdown timer designed for use in OBS (Open Broadcaster Softw
   - Local `styles.css` for shared styling
 - **Timer logic**: 
   - `relative-timer.html`: Fixed 2-minute countdown with intro text
-  - `specific-time.html`: Dynamic countdown to next 8:30 AM Central, target calculated once on load
+  - `specific-time.html`: Dynamic countdown to next weekday 8:30 AM Central, skips weekends, calculated once on load
 
 ## Key Design Decisions
 - **Transparent background**: Designed for overlay use in OBS
@@ -27,7 +27,7 @@ Stand-up meeting countdown timer designed for use in OBS (Open Broadcaster Softw
 ## Development Workflow
 **File Structure:**
 - `relative-timer.html` - Fixed-duration countdown (always 2 minutes)
-- `specific-time.html` - Countdown to specific meeting time (8:30 AM Central)
+- `specific-time.html` - Countdown to specific meeting time (8:30 AM Central, weekdays only)
 - `styles.css` - Shared styling for consistent appearance
 
 **Making Changes:**
@@ -50,8 +50,10 @@ Stand-up meeting countdown timer designed for use in OBS (Open Broadcaster Softw
 
 **specific-time.html (Absolute Timer):**
 - **Target time**: 8:30 AM Central Time (CST/CDT)
+- **Weekdays only**: Automatically skips weekends (Saturday/Sunday) to target next weekday
 - **Format**: HH:MM:SS for hours+ countdowns, MM:SS for under 1 hour
-- **Smart targeting**: If past 8:30 AM, counts to next day's 8:30 AM
+- **Smart targeting**: If past 8:30 AM, counts to next weekday's 8:30 AM
+- **Weekend logic**: If current or next target day falls on weekend, advances to Monday
 - **Timezone handling**: Uses browser's timezone conversion to Central Time
 
 **Both versions:**
