@@ -7,6 +7,7 @@ body, html {
     font-size: 200%;
     font-weight: bolder;
     -webkit-text-stroke: 2px black;
+    text-shadow: black 7px 7px 3px;
 }
 
 #timer-container {
